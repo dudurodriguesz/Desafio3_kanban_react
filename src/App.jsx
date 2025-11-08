@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Coluna from './components/Coluna';
 
 function App() {
   const [tarefas, setTarefas] = useState([]);
 
-  const handleAddTarefa = (TarefaData, status) => {
+  const handleAddTarefa = (DataTarefa, status) => {
+    console.log("3. App principal recebeu os dados!");
     const novaTarefa ={
       id: Date.now(),
       ...DataTarefa,
@@ -23,19 +22,19 @@ function App() {
   
 
   return (
-    <>
+    <div className='app-container'>
       <div className='quadro'>
        
       
-          <Coluna title = 'A Fazer' tarefas ={tarefasAfazer} status = 'A Fazer' onAddTarefa = {handleAddTarefa} />
+          <Coluna titulo = 'A Fazer' tarefas ={tarefasAfazer} status = 'A Fazer' onAddTarefa = {handleAddTarefa} />
 
-          <Coluna title = 'Fazendo' tarefas ={tarefasFazendo} status = 'fazendo' onAddTarefa = {handleAddTarefa}/>
+          <Coluna titulo = 'Fazendo' tarefas ={tarefasFazendo} status = 'Fazendo' onAddTarefa = {handleAddTarefa}/>
 
-          <Coluna title = 'Feito' tarefas ={tarefasFeitas}  status = 'Feito' onAddTarefa={handleAddTarefa}/>
+          <Coluna titulo = 'Feito' tarefas ={tarefasFeitas}  status = 'Feito' onAddTarefa={handleAddTarefa}/>
         
       </div>
      
-    </>
+    </div>
   )
 }
 

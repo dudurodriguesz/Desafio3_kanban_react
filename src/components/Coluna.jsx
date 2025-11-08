@@ -8,15 +8,19 @@ function Coluna({titulo, tarefas, status, onAddTarefa}){
     const [isAdding, setIsAdding] = useState(false)
 
     const handleSalvaTarefa = (DataTarefa) => {
+        console.log("2. Coluna recebeu os dados:", DataTarefa);
         onAddTarefa(DataTarefa, status)
 
         setIsAdding(false)
     }
 
     return(
+        
         <div className="coluna">
-            <h2>{titulo}</h2>
-            <div className="TarefasLista">
+            
+            <h2 className="tit">{titulo}</h2>
+            <div className="coluna-divider"></div>
+            <div className="card-lista">
                 {tarefas.map((tarefa) =>(<CardTarefa key={tarefa.id} tarefa={tarefa} />
             ))}
             </div>
@@ -29,6 +33,7 @@ function Coluna({titulo, tarefas, status, onAddTarefa}){
             <button className="add-tarefa-btn" onClick={() => setIsAdding(true)}>+</button>
             )}
         </div>
+        
     );
 }
 
